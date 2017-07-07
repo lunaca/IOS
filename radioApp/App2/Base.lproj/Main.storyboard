@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="App2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2.jpg" id="ADB-H8-gtl">
+                                <rect key="frame" x="65" y="65" width="442" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="H0E-bk-PcS">
+                                <rect key="frame" x="224" y="152" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="AM"/>
+                                    <segment title="FM"/>
+                                </segments>
+                                <color key="tintColor" red="0.99162083864212036" green="0.0047187870368361473" blue="0.055367521941661835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeband:" destination="BYZ-38-t0r" eventType="valueChanged" id="k5g-41-Iwy"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lh1-Rh-P9S">
+                                <rect key="frame" x="65" y="12" width="452" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="THE REAL &quot;PLAYSTATION&quot;">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.053889266182753692" blue="0.054450800796348897" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4oy-qM-k4a">
+                                <rect key="frame" x="51" y="192" width="70" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="video-play-4-xl.png"/>
+                                <connections>
+                                    <action selector="pressplaybutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T7o-Wi-Gx7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fkj-JC-Idl">
+                                <rect key="frame" x="443" y="192" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="003132-firey-orange-jelly-icon-media-a-media24-arrows-seek-forward.png"/>
+                                <connections>
+                                    <action selector="seek:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XtB-Rc-ZFf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch.png" id="eT1-OL-haY">
+                                <rect key="frame" x="237" y="192" width="94" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" id="tmE-h8-5qy">
+                                <rect key="frame" x="63" y="279" width="446" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.98365038633346558" green="0.058533824980258942" blue="0.028432952240109444" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="changeVolume:" destination="BYZ-38-t0r" eventType="valueChanged" id="nI8-Hx-9Rt"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="25" maxValue="170" id="YD5-qc-3x7">
+                                <rect key="frame" x="63" y="90" width="416" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="0.98365038633346558" green="0.058533824980258942" blue="0.028432952240109444" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="radioSetter:" destination="BYZ-38-t0r" eventType="valueChanged" id="maT-SO-jeq"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="0.091392390429973602" green="0.027193086221814156" blue="0.022380568087100983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="playbutton" destination="4oy-qM-k4a" id="Rr1-hc-73I"/>
+                        <outlet property="radioDisplay" destination="eT1-OL-haY" id="ODq-r7-Yhc"/>
+                        <outlet property="seekbutton" destination="Fkj-JC-Idl" id="eJ2-Dn-tNf"/>
+                        <outlet property="segment" destination="H0E-bk-PcS" id="rqL-vf-3C2"/>
+                        <outlet property="slider" destination="YD5-qc-3x7" id="y5B-8N-QHM"/>
+                        <outlet property="volumeslider" destination="tmE-h8-5qy" id="tHY-vA-gwa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="221"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="003132-firey-orange-jelly-icon-media-a-media24-arrows-seek-forward.png" width="256" height="256"/>
+        <image name="bg2.jpg" width="284" height="51"/>
+        <image name="launch.png" width="542" height="478"/>
+        <image name="video-play-4-xl.png" width="64" height="64"/>
+    </resources>
+</document>

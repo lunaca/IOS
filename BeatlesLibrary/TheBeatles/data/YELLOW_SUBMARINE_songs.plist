@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>All Together Now</key>
+	<string>Lennon &amp; McCartney</string>
+	<key>All You Need Is Love </key>
+	<string>Lennon &amp; McCartney</string>
+	<key>Hey Bulldog</key>
+	<string>Lennon &amp; McCartney</string>
+	<key>It's All Too Much </key>
+	<string>George Harrison</string>
+	<key>Only A Northern Song </key>
+	<string>George Harrison</string>
+	<key>Yellow Submarine</key>
+	<string>Lennon &amp; McCartney</string>
+</dict>
+</plist>

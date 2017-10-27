@@ -26,9 +26,6 @@
 		D9CED5F81DD858B60091E97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CED5F61DD858B60091E97C /* Main.storyboard */; };
 		D9CED5FA1DD858B60091E97C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9CED5F91DD858B60091E97C /* Assets.xcassets */; };
 		D9CED5FD1DD858B60091E97C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9CED5FB1DD858B60091E97C /* LaunchScreen.storyboard */; };
-		D9CED6081DD85A310091E97C /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CED6041DD85A310091E97C /* bg2.png */; };
-		D9CED60A1DD85A310091E97C /* touched.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CED6061DD85A310091E97C /* touched.png */; };
-		D9CED60B1DD85A310091E97C /* untouched.png in Resources */ = {isa = PBXBuildFile; fileRef = D9CED6071DD85A310091E97C /* untouched.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +43,8 @@
 		1716DF3B1DDD90650051C04B /* bloodsplatter3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodsplatter3.png; sourceTree = "<group>"; };
 		1716DF3C1DDD90650051C04B /* bloodsplatter2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodsplatter2.png; sourceTree = "<group>"; };
 		1716DF3D1DDD90650051C04B /* bloodsplatter1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloodsplatter1.png; sourceTree = "<group>"; };
+		172D29231FA04A42001E1C01 /* untouched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = untouched.png; sourceTree = "<group>"; };
+		172D29241FA04A42001E1C01 /* touched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touched.png; sourceTree = "<group>"; };
 		17813F701DDE1D5200656FC1 /* Alien_Scout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alien_Scout.png; sourceTree = "<group>"; };
 		17813F711DDE1D5200656FC1 /* BatEye-ffx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BatEye-ffx.png"; sourceTree = "<group>"; };
 		17813F8F1DE40F6700656FC1 /* targethit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = targethit.wav; sourceTree = "<group>"; };
@@ -56,9 +55,6 @@
 		D9CED5F91DD858B60091E97C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9CED5FC1DD858B60091E97C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9CED5FE1DD858B60091E97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9CED6041DD85A310091E97C /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg2.png; path = ../../../../../Downloads/imagesSounds/bg2.png; sourceTree = "<group>"; };
-		D9CED6061DD85A310091E97C /* touched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = touched.png; path = ../../../../../Downloads/imagesSounds/touched.png; sourceTree = "<group>"; };
-		D9CED6071DD85A310091E97C /* untouched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = untouched.png; path = ../../../../../Downloads/imagesSounds/untouched.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +87,8 @@
 		D9CED5F11DD858B60091E97C /* App 5 */ = {
 			isa = PBXGroup;
 			children = (
+				172D29241FA04A42001E1C01 /* touched.png */,
+				172D29231FA04A42001E1C01 /* untouched.png */,
 				17813F8F1DE40F6700656FC1 /* targethit.wav */,
 				17813F701DDE1D5200656FC1 /* Alien_Scout.png */,
 				17813F711DDE1D5200656FC1 /* BatEye-ffx.png */,
@@ -113,9 +111,6 @@
 				D9CED5FB1DD858B60091E97C /* LaunchScreen.storyboard */,
 				D9CED5FE1DD858B60091E97C /* Info.plist */,
 				1716DF291DDBEABE0051C04B /* cannonBall.png */,
-				D9CED6041DD85A310091E97C /* bg2.png */,
-				D9CED6061DD85A310091E97C /* touched.png */,
-				D9CED6071DD85A310091E97C /* untouched.png */,
 				1716DF221DDBE8C40051C04B /* Targets-Bridging-Header.h */,
 			);
 			name = "App 5";
@@ -187,15 +182,12 @@
 				1716DF341DDD56280051C04B /* fireball_by_wyonet-d5zowv7.png in Resources */,
 				1716DF381DDD817F0051C04B /* 10a3e1ef29ca4ec02db2ec6bb32ff18f.png in Resources */,
 				17813F901DE40F6800656FC1 /* targethit.wav in Resources */,
-				D9CED60B1DD85A310091E97C /* untouched.png in Resources */,
 				1716DF3E1DDD90650051C04B /* bloodsplatter3.png in Resources */,
 				1716DF361DDD59730051C04B /* aliensprite.png in Resources */,
 				17813F721DDE1D5200656FC1 /* Alien_Scout.png in Resources */,
-				D9CED6081DD85A310091E97C /* bg2.png in Resources */,
 				17813F731DDE1D5200656FC1 /* BatEye-ffx.png in Resources */,
 				1716DF2A1DDBEABE0051C04B /* cannonBall.png in Resources */,
 				D9CED5FA1DD858B60091E97C /* Assets.xcassets in Resources */,
-				D9CED60A1DD85A310091E97C /* touched.png in Resources */,
 				D9CED5F81DD858B60091E97C /* Main.storyboard in Resources */,
 				1716DF3F1DDD90650051C04B /* bloodsplatter2.png in Resources */,
 				1716DF401DDD90650051C04B /* bloodsplatter1.png in Resources */,
@@ -331,12 +323,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Targets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.student.alliance.App5;
 				PRODUCT_NAME = "App 5";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Targets/Targets-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -348,11 +342,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Targets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.student.alliance.App5;
 				PRODUCT_NAME = "App 5";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Targets/Targets-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

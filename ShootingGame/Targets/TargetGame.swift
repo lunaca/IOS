@@ -15,7 +15,7 @@ import AVFoundation
 class TargetGame: UIViewController {
 
     var player : AVAudioPlayer?
-    var targetx = Array(count: 15 , repeatedValue: Int(rand() % Int32(40)))
+    var targetx = Array(repeating: Int(arc4random() % UInt32(40)), count: 15)
     var norepeat : Bool = true
     var height : Double!
     var width : Double!
@@ -27,7 +27,7 @@ class TargetGame: UIViewController {
     var end: NSDate?
     var angle : CGFloat = 0
     
-    var physicstimer : NSTimer!
+    var physicstimer : Timer!
     var myCounter : CGFloat = 0
     var upSwipe = UIPanGestureRecognizer()
     let activeTarget = UIImage(named: "touched.png")
@@ -38,7 +38,7 @@ class TargetGame: UIViewController {
     let spaceship = UIImage(named: "10a3e1ef29ca4ec02db2ec6bb32ff18f.png")
     let horde1 = UIImage(named: "yJS9nQV.png")
     var projectile : UIButton!
-    var target = Array(count: 15, repeatedValue: UIImageView())
+    var target = Array(repeating: UIImageView(), count: 15)
     var touchLayer : UIView!
     var numberOfTargets : Int!
     
@@ -49,7 +49,7 @@ class TargetGame: UIViewController {
     var initialY : CGFloat!
     
 
-    private var timer : NSTimer!
+    private var timer : Timer!
     var x : Double!
    
     var fireable : Bool = false
@@ -64,7 +64,7 @@ class TargetGame: UIViewController {
     var alien2 = UIImage(named: "Alien_Scout.png")
     var alien3 = UIImage(named: "BatEye-ffx")
     
-    var url = NSBundle.mainBundle().URLForResource("targethit", withExtension: "wav")!
+    var url = Bundle.main.url(forResource: "targethit", withExtension: "wav")!
     var score : Int = 0
     var shots : Int = 0
     @IBOutlet var scorekeep : UILabel!
@@ -73,12 +73,12 @@ class TargetGame: UIViewController {
     @IBOutlet var  healthbar : UILabel!
     
      var images = [UIImage]()
-    var targettype = Array( count: 15 , repeatedValue: Int())
+    var targettype = Array( repeating: Int(), count: 15)
     
-    var gametimer : NSTimer!
-    var targetpoints = Array(count: 15, repeatedValue: CGPoint())
+    var gametimer : Timer!
+    var targetpoints = Array(repeating: CGPoint(), count: 15)
     var targetcounter = 500
-    var flipswitch = Array(count: 15, repeatedValue: Int(1))
+    var flipswitch = Array(repeating: Int(1), count: 15)
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -93,10 +93,10 @@ class TargetGame: UIViewController {
         setup()
         drawTargets()
         
-        self.gametimer = NSTimer.scheduledTimerWithTimeInterval(0.10, target: self, selector: #selector(TargetGame.moveTargets), userInfo: self, repeats: true)
+        self.gametimer = Timer.scheduledTimer(timeInterval: 0.10, target: self, selector: #selector(TargetGame.moveTargets), userInfo: self, repeats: true)
 
         do {
-            player = try AVAudioPlayer(contentsOfURL: self.url)
+            player = try AVAudioPlayer(contentsOf: self.url)
             
             
             player!.prepareToPlay()
@@ -124,11 +124,11 @@ class TargetGame: UIViewController {
         
         
         while(i<numberOfTargets){
-            self.targettype[i] = Int(rand() % Int32(3))
+            self.targettype[i] = Int(arc4random() % UInt32(3))
             
-            let randomX = Int(rand()%Int32(width - 0.1 * width) + 1)
+            let randomX = Int(arc4random()%UInt32(width - 0.1 * width) + 1)
             
-            var randomY = Int(rand()%Int32(height - 0.40 * height) + 50)
+            var randomY = Int(arc4random()%UInt32(height - 0.40 * height) + 50)
 
           targetpoints[i] = CGPoint(x: randomX, y: randomY)
             
@@ -136,17 +136,17 @@ class TargetGame: UIViewController {
             
             if(targettype[i] == 0 )
             {
-                 target[i] = UIImageView(frame: CGRectMake(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.17), CGFloat(0.17 * width)))
+                 target[i] = UIImageView(frame: CGRect(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.17), CGFloat(0.17 * width)))
             target[i].image = horde1
             }
             if(targettype[i] == 1 )
             {
-                 target[i] = UIImageView(frame: CGRectMake(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.25), CGFloat(0.25 * width)))
+                 target[i] = UIImageView(frame: CGRect(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.25), CGFloat(0.25 * width)))
                 target[i].image = alien2
             }
             if(targettype[i] == 2 )
             {
-                 target[i] = UIImageView(frame: CGRectMake(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.10), CGFloat(0.10 * width)))
+                 target[i] = UIImageView(frame: CGRect(CGFloat(randomX), CGFloat(randomY), CGFloat(width * 0.10), CGFloat(0.10 * width)))
                 target[i].image = alien3
             }
             
@@ -163,21 +163,21 @@ class TargetGame: UIViewController {
         originX = width/2
         originY = height/2
         
-        touchLayer = UIView(frame: CGRectMake(0, 0, CGFloat(width), CGFloat(height)))
+        touchLayer = UIView(frame: CGRect(0, 0, CGFloat(width), CGFloat(height)))
          touchLayer.addGestureRecognizer(upSwipe)
         
-        let background = UIImageView(frame: CGRectMake(0, 0, CGFloat(width), CGFloat(height)))
-        let foreground = UIImageView(frame: CGRectMake(0, CGFloat(0.80 * height), CGFloat(width), CGFloat(0.20 * height)))
+        let background = UIImageView(frame: CGRect(0, 0, CGFloat(width), CGFloat(height)))
+        let foreground = UIImageView(frame: CGRect(0, CGFloat(0.80 * height), CGFloat(width), CGFloat(0.20 * height)))
        // let cannon = UIView(frame: CGRectMake(CGFloat(originX - (0.05 * width)), CGFloat(0.875 * height), CGFloat(width * 0.15), CGFloat(0.125 * height)))
-        let aliencannoning = UIImageView(frame: CGRectMake(CGFloat(originX - (0.05 * width)), CGFloat(0.875 * height), CGFloat(width * 0.1), CGFloat(0.075 * height)))
+        let aliencannoning = UIImageView(frame: CGRect(CGFloat(originX - (0.05 * width)), CGFloat(0.875 * height), CGFloat(width * 0.1), CGFloat(0.075 * height)))
         aliencannoning.image = aliencannon
         
-        projectile = UIButton(frame: CGRectMake(CGFloat(originX - (0.05 * width)), CGFloat((0.875 * height) - (width * 0.1)), CGFloat(width * 0.15), CGFloat(0.15 * width)))
+        projectile = UIButton(frame: CGRect(CGFloat(originX - (0.05 * width)), CGFloat((0.875 * height) - (width * 0.1)), CGFloat(width * 0.15), CGFloat(0.15 * width)))
         
         background.image = sky
         foreground.image = spaceship
         //cannon.backgroundColor = UIColor.init(red: 0.8, green: 0.45, blue: 0.25, alpha: 1)
-        projectile.setImage(cannonBall, forState: .Normal)
+        projectile.setImage(cannonBall, for: .normal)
         initialX = self.projectile.frame.origin.x
         initialY = self.projectile.frame.origin.y
 
@@ -282,17 +282,17 @@ class TargetGame: UIViewController {
         if (self.targetcounter <= 0)
         {
             self.gametimer.invalidate()
-            let loseController = UIAlertController(title: "uh oh...", message: "our whole race is now extinct", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "let's go again", style: .Default, handler: resetItAll)
+            let loseController = UIAlertController(title: "uh oh...", message: "our whole race is now extinct", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "let's go again", style: .default, handler: resetItAll)
             //you can add custom actions as well
             loseController.addAction(defaultAction)
             
-            presentViewController(loseController, animated: true, completion: nil)
+            present(loseController, animated: true, completion: nil)
         }
     }
 
     }
-    func touchEvent(gesture: UIGestureRecognizer){
+    func touchEvent(_ gesture: UIGestureRecognizer){
        
         if(self.norepeat == true)
         {
@@ -303,12 +303,12 @@ class TargetGame: UIViewController {
         
       switch (swipeGesture!.state)
       {
-      case UIGestureRecognizerState.Began:
+      case UIGestureRecognizerState.began:
         
-        self.starttouchpoint = swipeGesture!.locationInView(touchLayer)
+        self.starttouchpoint = swipeGesture!.location(in: touchLayer)
         self.start = NSDate()
 
-        if (CGRectContainsPoint(self.projectile.frame, self.starttouchpoint!))
+        if (self.projectile.frame.contains(self.starttouchpoint!))
         {
         
         self.fireable = true
@@ -318,8 +318,8 @@ class TargetGame: UIViewController {
         
         break
         
-        case UIGestureRecognizerState.Ended:
-         self.endtouchpoint  = swipeGesture!.locationInView(touchLayer)
+      case UIGestureRecognizerState.ended:
+        self.endtouchpoint  = swipeGesture!.location(in: touchLayer)
         if (self.fireable == true && self.endtouchpoint!.y < self.starttouchpoint!.y)
         {
         
@@ -327,9 +327,9 @@ class TargetGame: UIViewController {
        print("ended at: " )
      
        
-        computeVelocity()
+        self.computeVelocity()
         
-        startPhysicsTimer()
+        self.startPhysicsTimer()
         
         print(self.angle)
         print(self.velocity)
@@ -337,9 +337,9 @@ class TargetGame: UIViewController {
         }
         
         break
-      case UIGestureRecognizerState.Changed:
-       movepoint = swipeGesture!.locationInView(touchLayer)
-        if (CGRectContainsPoint(self.projectile.frame, movepoint!))
+      case UIGestureRecognizerState.changed:
+        movepoint = swipeGesture!.location(in: touchLayer)
+        if (self.projectile.frame.contains(movepoint!))
         {
             
             self.fireable = true
@@ -369,7 +369,7 @@ func resetItAll (sender: AnyObject)
 
     func startPhysicsTimer(){
         print("physics started")
-              self.physicstimer = NSTimer.scheduledTimerWithTimeInterval(0.025, target: self, selector: #selector(TargetGame.physicsMove), userInfo: self, repeats: true)
+        self.physicstimer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(TargetGame.physicsMove), userInfo: self, repeats: true)
         
         
     }
@@ -385,7 +385,7 @@ func resetItAll (sender: AnyObject)
         
         //compute your velocity
         var dist = Double(sqrt(pow(self.starttouchpoint!.x - self.endtouchpoint!.x,2.0)+pow(self.starttouchpoint!.y - self.endtouchpoint!.y,2.0)));
-        var delta_t = self.end!.timeIntervalSinceDate(self.start!)
+        var delta_t = self.end!.timeIntervalSince(self.start! as Date)
         //print(delta_t)
         //print(dist)
         
@@ -406,8 +406,8 @@ func resetItAll (sender: AnyObject)
 
    
    
-let eq = "(" + String(velocity) + "*(cos(" + String(angle) + ")*" + String(self.myCounter) + "))*1 +" + String(initialX)
- let eq2 = "(-" + String(velocity) + "*(sin(" + String(angle) + ")*" + String(self.myCounter) + ") + 0.2 * 9.8 * " + String(self.myCounter) + "*" + String(self.myCounter) + ") * 1 +" + String(initialY)
+    let eq = "(" + String(velocity) + "*(cos(" + String(describing: angle) + ")*" + String(describing: self.myCounter) + "))*1 +" + String(describing: initialX!)
+    let eq2 = "(-" + String(velocity) + "*(sin(" + String(describing: angle) + ")*" + String(describing: self.myCounter) + ") + 0.2 * 9.8 * " + String(describing: self.myCounter) + "*" + String(describing: self.myCounter) + ") * 1 +" + String(describing: initialY!)
 
     
     
@@ -418,21 +418,21 @@ let eq = "(" + String(velocity) + "*(cos(" + String(angle) + ")*" + String(self.
 //              self.cannon_y = (simple2 + simple3)
 
     
-    self.projectile.frame = CGRectMake(CGFloat(self.cannon_x), CGFloat(self.cannon_y), self.projectile.frame.size.width, self.projectile.frame.size.height)
+    self.projectile.frame = CGRect(CGFloat(self.cannon_x), CGFloat(self.cannon_y), self.projectile.frame.size.width, self.projectile.frame.size.height)
     
     self.projectile.setNeedsDisplay()
     
 var i = 0
 while i < target.count {
 
-if(CGRectIntersectsRect(self.projectile.frame, target[i].frame)) && (target[i].image != nil){
+    if(self.projectile.frame.intersects(target[i].frame)) && (target[i].image != nil){
 target[i].image = nil
 target[i].animationImages = self.images
 target[i].animationDuration = 0.30
 target[i].animationRepeatCount = 1
 target[i].startAnimating()
 playSound()
-    self.score++
+    self.score+=1
     self.scorekeep.text = "Score: " + String(self.score)
     if(self.score == target.count)
     {
@@ -444,12 +444,12 @@ playSound()
 //        successdawg.show()
 // 
         self.gametimer.invalidate()
-        let winController = UIAlertController(title: "WOW", message: "YOU PROTECTED THE SHIP FROM THE HORDE!", preferredStyle: .Alert)
-        let defaultAction = UIAlertAction(title: "i want some more", style: .Default, handler: resetItAll)
+        let winController = UIAlertController(title: "WOW", message: "YOU PROTECTED THE SHIP FROM THE HORDE!", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "i want some more", style: .default, handler: resetItAll)
         //you can add custom actions as well
         winController.addAction(defaultAction)
         
-        presentViewController(winController, animated: true, completion: nil)
+        present(winController, animated: true, completion: nil)
         
 
     }
@@ -460,14 +460,14 @@ print(i)
     
 if(self.cannon_x > CGFloat(width) || self.cannon_y > CGFloat(height) || self.cannon_x < 0){
 
-self.projectile.frame = CGRectMake(CGFloat(originX - (0.05 * width)), CGFloat((0.88 * height - 0.07 * width)), CGFloat(width * 0.15), CGFloat(0.15 * width))
+self.projectile.frame = CGRect(CGFloat(originX - (0.05 * width)), CGFloat((0.88 * height - 0.07 * width)), CGFloat(width * 0.15), CGFloat(0.15 * width))
 self.norepeat = true
 cannon_x = self.projectile.frame.origin.x
 cannon_y = self.projectile.frame.origin.y
 self.myCounter = 0
 self.projectile.setNeedsDisplay()
 self.x = 0
-self.shots++
+self.shots += 1
 self.shotkeep.text = "Shots: " + String(self.shots)
 physicstimer.invalidate()
     
@@ -485,10 +485,23 @@ physicstimer.invalidate()
     
     }
     
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
+
    
 }
 
+extension CGRect{
+    init(_ x:CGFloat,_ y:CGFloat,_ width:CGFloat,_ height:CGFloat) {
+        self.init(x:x,y:y,width:width,height:height)
+    }
+    
+}
+extension CGSize{
+    init(_ width:CGFloat,_ height:CGFloat) {
+        self.init(width:width,height:height)
+    }
+}
+extension CGPoint{
+    init(_ x:CGFloat,_ y:CGFloat) {
+        self.init(x:x,y:y)
+    }
+}
